@@ -1082,6 +1082,12 @@
         "missing": "Missing",
         "suspended": "Suspended"
     },
+    "archisteamfarm": {
+        "bots": "Bots",
+        "farming": "Farming",
+        "timeRemaining": "Time Remaining",
+        "cardsRemaining": "Cards Remaining"
+    },
     "spoolman": {
         "loading": "Loading"
     },

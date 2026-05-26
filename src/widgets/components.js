@@ -5,6 +5,7 @@ const components = {
   apcups: dynamic(() => import("./apcups/component")),
   arcane: dynamic(() => import("./arcane/component")),
   argocd: dynamic(() => import("./argocd/component")),
+  archisteamfarm: dynamic(() => import("./archisteamfarm/component")),
   atsumeru: dynamic(() => import("./atsumeru/component")),
   audiobookshelf: dynamic(() => import("./audiobookshelf/component")),
   authentik: dynamic(() => import("./authentik/component")),
