@@ -44,17 +44,18 @@ export default function Component({ service }) {
   const result = Object.values(data.Result);
   const bots = result.reduce(
     (acc, cur) => {
+      acc.online += cur.IsConnectedAndLoggedOn ? 1 : 0;
       acc.farming += cur.CardsFarmer.NowFarming ? 1 : 0;
       acc.cardsRemaining += cur.CardsFarmer.GamesToFarm.reduce((acc, cur) => acc + cur.CardsRemaining, 0);
       acc.timeRemaining = Math.max(acc.timeRemaining, timeRemainingSeconds(cur.CardsFarmer.TimeRemaining));
       return acc;
     },
-    { farming: 0, timeRemaining: 0, cardsRemaining: 0 },
+    { online: 0, farming: 0, timeRemaining: 0, cardsRemaining: 0 },
   );
 
   return (
     <Container service={service}>
-      <Block label="archisteamfarm.bots" value={result.length} />
+      <Block label="archisteamfarm.bots" value={`${bots.online} / ${result.length}`} />
       <Block label="archisteamfarm.farming" value={bots.farming} />
       <Block label="archisteamfarm.cardsRemaining" value={bots.cardsRemaining || "-"} />
       <Block label="archisteamfarm.timeRemaining" value={t("common.duration", { value: bots.timeRemaining }) || "-"} />
